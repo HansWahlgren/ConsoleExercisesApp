@@ -65,6 +65,18 @@ namespace ConsoleExercisesApp
                         case 14:
                             RunExerciseForteen();
                             break;
+                        case 15:
+                            RunExerciseFiftteen();
+                            break;
+                        case 16:
+                            RunExerciseSixteen();
+                            break;
+                        case 17:
+                            RunExerciseSeventeen();
+                            break;
+                        case 18:
+                            RunExerciseEightteen();
+                            break;
 
                         // Add new cases as you progress with your exercises
 
@@ -259,7 +271,6 @@ namespace ConsoleExercisesApp
                     Console.WriteLine("Sorry, no other order options are avaliable");
                 }
             }
-
         }
 
         private static void RunExerciseTen()
@@ -302,23 +313,23 @@ namespace ConsoleExercisesApp
                         break;
                 }
             }
-        }
 
-        private static void RunUserNumbers()
-        {
-            Console.WriteLine("Enter a number");
-            double numberA = double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter another number (Not 0)");
-            double numberB = double.Parse(Console.ReadLine());
-
-            if(numberB == 0)
+            static void RunUserNumbers()
             {
-                Console.WriteLine("Cannot divide by zero");
-            }
+                Console.WriteLine("Enter a number");
+                double numberA = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter another number (Not 0)");
+                double numberB = double.Parse(Console.ReadLine());
 
-            else
-            {
-                Console.WriteLine(numberA / numberB);
+                if (numberB == 0)
+                {
+                    Console.WriteLine("Cannot divide by zero");
+                }
+
+                else
+                {
+                    Console.WriteLine($"{numberA} divided by {numberB} is {numberA / numberB}");
+                }
             }
         }
 
@@ -338,13 +349,11 @@ namespace ConsoleExercisesApp
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
-
                     System.Threading.Thread.Sleep(500);
                     Console.WriteLine(i);
                 }
 
                 Console.WriteLine("------------");
-                
                 for (int i = 0; i <= userNumber; i++)
                 {
                     if (i % 2 == 0)
@@ -365,22 +374,101 @@ namespace ConsoleExercisesApp
             {
                 Console.WriteLine("You need a greater number then 0!");
             }
-            
         }
 
         private static void RunExerciseTwelve()
         {
-            Console.WriteLine("Nothing Here");
+            for (int x = 1; x <= 10; x++)
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    Console.Write(i * x + "\t");
+                }
+                Console.WriteLine();
+            }
         }
 
         private static void RunExerciseThirteen()
         {
-            Console.WriteLine("Nothing Here");
+            Random random = new Random();
+            int randomNumber = random.Next(0,500);
+            int userGuesses = 0;
+            Console.WriteLine("Guess a number between 0-500");
+            bool keepAlive = true;
+
+            Console.WriteLine(randomNumber);
+            while (keepAlive)
+            {
+                int userNumber = int.Parse(Console.ReadLine());
+                userGuesses = ++userGuesses;
+                if (userNumber < randomNumber)
+                {
+                    Console.WriteLine("Your guess was to low");
+                }
+                else if(userNumber > randomNumber)
+                {
+                    Console.WriteLine("Your guess was to High");
+                }
+                else
+                {
+                    Console.WriteLine($"Your guess was correct!! Number of Guesses: {userGuesses}");
+                    keepAlive = false;
+                }
+            }
         }
 
         private static void RunExerciseForteen()
         {
-            Console.WriteLine("Nothing Here");
+            bool keepAlive = true;
+            int amountNumbers = 0;
+            double totalAmount = 0;
+
+            while (keepAlive)
+            {
+                Console.WriteLine("Enter a number, Press -1 to exit");
+                double userNumber = double.Parse(Console.ReadLine());
+                if (userNumber == -1)
+                {
+                    keepAlive = false;
+                }
+                else
+                {
+                    ++amountNumbers;
+                    totalAmount = totalAmount + userNumber;
+                }
+            }
+            Console.WriteLine($"The total amount is: {totalAmount}");
+            Console.WriteLine($"The average number is: {totalAmount / amountNumbers}");
+
+            /*
+            Array test!!
+            double[] allNumbers = new double[0];
+            double[] allNumbers;
+            allNumbers = new double[0] { userNumber };
+            Console.WriteLine(allNumbers[0]);
+            allNumbers = new double[0] { 20 };
+            Console.WriteLine(allNumbers[0]);
+            */
+        }
+
+        private static void RunExerciseFiftteen()
+        {
+
+        }
+
+        private static void RunExerciseSixteen()
+        {
+
+        }
+
+        private static void RunExerciseSeventeen()
+        {
+
+        }
+
+        private static void RunExerciseEightteen()
+        {
+
         }
 
         // Cerate your exercise methods here
