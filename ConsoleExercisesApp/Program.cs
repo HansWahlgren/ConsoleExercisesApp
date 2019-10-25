@@ -453,7 +453,29 @@ namespace ConsoleExercisesApp
 
         private static void RunExerciseFiftteen()
         {
-
+            /*
+            Console.WriteLine("Please type a number:");
+            int userNumber = int.Parse(Console.ReadLine());
+            for (int i = userNumber; i > 0; i--)
+            {
+                if (userNumber % i == 0)
+                { 
+                    Console.WriteLine(i);
+                }
+            }
+            */
+           // int 
+            for (int i = 1; i < 28; i++)
+            {
+                for (int x = 1; x < 28; x++)
+                {
+                    if (i % x == 0)
+                    {
+                        Console.WriteLine(x);
+                    }
+                }
+            }
+            // 6, 28, 496,
         }
 
         private static void RunExerciseSixteen()
