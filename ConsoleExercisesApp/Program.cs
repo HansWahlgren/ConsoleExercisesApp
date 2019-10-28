@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleExercisesApp
 {
@@ -453,6 +455,7 @@ namespace ConsoleExercisesApp
 
         private static void RunExerciseFiftteen()
         {
+            //PART 1
             /*
             Console.WriteLine("Please type a number:");
             int userNumber = int.Parse(Console.ReadLine());
@@ -464,14 +467,29 @@ namespace ConsoleExercisesApp
                 }
             }
             */
-           // int 
-            for (int i = 1; i < 28; i++)
+
+            // PART 2
+            for (int i = 1; i <= 6; i++)
             {
-                for (int x = 1; x < 28; x++)
+                List<int> numberList = new List<int>();
+                for (int x = 1; x <= 6; x++)
                 {
+                    int checkNumber = 0;
                     if (i % x == 0)
                     {
-                        Console.WriteLine(x);
+                        numberList.Add(x);
+
+                        for (int y = 0; y < numberList.Count; y++)
+                        {
+                              checkNumber += numberList[y];
+                        //    if (numberList.Sum() % numberList[y] == 0)
+                              //  checkNumber += numberList[y];
+                              //  Console.WriteLine(numberList[y]);
+                            if (numberList.Sum() % numberList[y] == 0 && numberList.Sum() == checkNumber)
+                            {
+                                Console.WriteLine($"Sum is: {numberList.Sum()} ");
+                            }
+                        }
                     }
                 }
             }
