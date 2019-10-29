@@ -456,7 +456,6 @@ namespace ConsoleExercisesApp
         private static void RunExerciseFiftteen()
         {
             //PART 1
-            /*
             Console.WriteLine("Please type a number:");
             int userNumber = int.Parse(Console.ReadLine());
             for (int i = userNumber; i > 0; i--)
@@ -466,39 +465,49 @@ namespace ConsoleExercisesApp
                     Console.WriteLine(i);
                 }
             }
-            */
-
+            
             // PART 2
-            for (int i = 1; i <= 6; i++)
+            for (int i = 1; i <= 10000; i++)
             {
                 List<int> numberList = new List<int>();
-                for (int x = 1; x <= 6; x++)
+                bool perfectCheck = false;
+                for (int x = 1; x <= 10000; x++)
                 {
-                    int checkNumber = 0;
-                    if (i % x == 0)
+                    if (i % x == 0 && i != x)
                     {
                         numberList.Add(x);
-
                         for (int y = 0; y < numberList.Count; y++)
                         {
-                              checkNumber += numberList[y];
-                        //    if (numberList.Sum() % numberList[y] == 0)
-                              //  checkNumber += numberList[y];
-                              //  Console.WriteLine(numberList[y]);
-                            if (numberList.Sum() % numberList[y] == 0 && numberList.Sum() == checkNumber)
+                            //  if (numberList.Sum() % numberList[y] == 0)
+                            if (i % numberList[y] == 0)
                             {
-                                Console.WriteLine($"Sum is: {numberList.Sum()} ");
+                                perfectCheck = true;
+                            }
+                            else
+                            {
+                                y = numberList.Count;
+                                perfectCheck = false;
                             }
                         }
                     }
                 }
+                if (perfectCheck == true && numberList.Sum() == i && numberList.Count > 1)
+                {
+                    Console.WriteLine($"Perfect Number: {numberList.Sum()}");
+                }
             }
-            // 6, 28, 496,
         }
 
         private static void RunExerciseSixteen()
         {
-
+            List<int> fibonacciList = new List<int>() {0,1};
+            Console.WriteLine("Please enter a number to count the Fibonacci series up to");
+            int userNumber = int.Parse(Console.ReadLine());
+            for (int i = 0; i < userNumber; i++)
+            {
+                fibonacciList.Add(fibonacciList[i] + fibonacciList[i + 1]);
+                Console.WriteLine(fibonacciList[i]);
+            }
         }
 
         private static void RunExerciseSeventeen()
